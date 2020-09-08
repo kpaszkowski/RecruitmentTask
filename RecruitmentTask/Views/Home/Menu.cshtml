@@ -1,4 +1,6 @@
-﻿@using (Ajax.BeginForm("GetFilteredRecords", "Home", null,
+﻿@model RecruitmentTask.ViewModels.RaportViewModelRequest
+
+@using (Ajax.BeginForm("GetFilteredRecords", "Home", null,
         new AjaxOptions
         {
             HttpMethod = "GET",
@@ -7,11 +9,19 @@
         }, new { id = "filter-form" }))
 
 {
-    <label for="premises">Lokal:</label>
-    <input type="text" class="form-control" id="premises" name="premises">
+    @Html.LabelFor(x => x.Premises)
+    @Html.TextBoxFor(x => x.Premises, new { @class = "form-control" })
 
-    @*<label id="search-text-label" for="search-text" class="reader">Enter some text to search on:</label>
-    <input type="text" id="search-text" name="query" required maxlength="25" placeholder="search phrase..." />*@
+    @Html.LabelFor(x => x.From)
+    @Html.TextBoxFor(x => x.From, new { @class = "date-picker form-control" })
+
+    @Html.LabelFor(x => x.To)
+    @Html.TextBoxFor(x => x.To, new { @class = "date-picker form-control" })
+
     <input class="btn btn-success" type="submit" id="search-button" value="Szukaj" />
 }
-
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+    })
+</script>
