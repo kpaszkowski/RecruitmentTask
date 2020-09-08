@@ -1,4 +1,5 @@
-﻿using RecruitmentTask.Models;
+﻿using LinqKit;
+using RecruitmentTask.Models;
 using RecruitmentTask.Services.Interfaces;
 using RecruitmentTask.ViewModels;
 using System;
@@ -12,15 +13,33 @@ namespace RecruitmentTask.Services
     {
         public IList<RaportViewModelReponse> GetRaports(RaportViewModelRequest viewModel)
         {
-            
             try
             {
                 using (var context = new Context())
                 {
                     var response = new List<RaportViewModelReponse>();
+                    var predicate = PredicateBuilder.New<Raport>(true);
+
+                    if (viewModel != null)
+                    {
+                        if (!string.IsNullOrEmpty(viewModel.Premises))
+                        {
+                            predicate = predicate.And(x => x.Premises.Name.ToLower().Contains(viewModel.Premises.ToLower()));
+                        }
+                        if (viewModel.From != default)
+                        {
+                            predicate = predicate.And(x => x.Date >= viewModel.From);
+                        }
+                        if (viewModel.To != default)
+                        {
+                            predicate = predicate.And(x => x.Date <= viewModel.To);
+                        }
+                    }
+
                     var raports = context.Raports
-                        .Include(x=>x.User)
+                        .Include(x => x.User)
                         .Include(x => x.Premises)
+                        .Where(predicate)
                         .ToList();
 
                     foreach (var raport in raports)
@@ -38,7 +57,7 @@ namespace RecruitmentTask.Services
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
