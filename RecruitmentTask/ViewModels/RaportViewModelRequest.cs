@@ -9,9 +9,9 @@ namespace RecruitmentTask.ViewModels
         public string Premises { get; set; }
 
         [DisplayName("Data od")]
-        public DateTime From { get; set; }
+        public DateTime? From { get; set; }
         
         [DisplayName("Data do")]
-        public DateTime To { get; set; }
+        public DateTime? To { get; set; }
     }
 }

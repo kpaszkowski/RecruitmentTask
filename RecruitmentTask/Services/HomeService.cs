@@ -26,11 +26,11 @@ namespace RecruitmentTask.Services
                         {
                             predicate = predicate.And(x => x.Premises.Name.ToLower().Contains(viewModel.Premises.ToLower()));
                         }
-                        if (viewModel.From != default)
+                        if (viewModel.From != null)
                         {
                             predicate = predicate.And(x => x.Date >= viewModel.From);
                         }
-                        if (viewModel.To != default)
+                        if (viewModel.To != null)
                         {
                             predicate = predicate.And(x => x.Date <= viewModel.To);
                         }
@@ -40,22 +40,18 @@ namespace RecruitmentTask.Services
                         .Include(x => x.User)
                         .Include(x => x.Premises)
                         .Where(predicate)
+                        .Select(x => new RaportViewModelReponse
+                        {
+                            Id = x.Id,
+                            Name = x.Name,
+                            Date = x.Date,
+                            UserName = x.User != null ? x.User.Name : string.Empty,
+                            PermisesName = x.Premises != null ? x.Premises.Name : string.Empty
+                        })
                         .ToList();
 
-                    foreach (var raport in raports)
-                    {
-                        response.Add(new RaportViewModelReponse
-                        {
-                            Id = raport.Id,
-                            Name = raport.Name,
-                            Date = raport.Date,
-                            UserName = raport.User?.Name,
-                            PermisesName = raport.Premises?.Name
-                        });
-                    }
-                    return response;
+                    return raports;
                 }
-
             }
             catch (Exception)
             {
