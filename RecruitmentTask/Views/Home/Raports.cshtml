@@ -1,0 +1,25 @@
+﻿@model IList<RecruitmentTask.ViewModels.RaportViewModelReponse>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Data</th>
+            <th>Godzina</th>
+            <th>Użytkownik</th>
+            <th>Lokal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var raport in Model)
+        {
+            <tr>
+                <td>@raport.Name</td>
+                <td>@raport.Date.ToShortDateString()</td>
+                <td>@raport.Date.ToShortTimeString()</td>
+                <td>@raport.UserName</td>
+                <td>@raport.PermisesName</td>
+            </tr>
+        }
+    </tbody>
+</table>
