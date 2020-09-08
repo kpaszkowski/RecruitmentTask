@@ -170,19 +170,21 @@
     </Compile>
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Premises.cs" />
-    <Compile Include="Models\Raport.cs" />
-    <Compile Include="Models\RaportsDBInitializer.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ReportsDbInitializer.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\HomeRepository.cs" />
+    <Compile Include="Repository\Interfaces\IHomeRepository.cs" />
     <Compile Include="Services\HomeService.cs" />
     <Compile Include="Services\Interfaces\IHomeService.cs" />
-    <Compile Include="ViewModels\RaportViewModelReponse.cs" />
-    <Compile Include="ViewModels\RaportViewModelRequest.cs" />
+    <Compile Include="ViewModels\ReportViewModelResponse.cs" />
+    <Compile Include="ViewModels\ReportViewModelRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
-    <Content Include="Views\Home\Raports.cshtml" />
+    <Content Include="Views\Home\Reports.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

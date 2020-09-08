@@ -1,13 +1,14 @@
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using RecruitmentTask.DependencyInjection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using DependencyResolver = RecruitmentTask.DependencyInjection.DependencyResolver;
 
 namespace RecruitmentTask
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -21,7 +22,6 @@ namespace RecruitmentTask
             var controllerFactory = new WindsorControllerFactory(container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
             DependencyResolver.SetResolver(container);
-
         }
     }
 }

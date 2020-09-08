@@ -1,11 +1,11 @@
-﻿@model RecruitmentTask.ViewModels.RaportViewModelRequest
+﻿@model RecruitmentTask.ViewModels.ReportViewModelRequest
 
-@using (Ajax.BeginForm("GetFilteredRecords", "Home", null,
+@using (Ajax.BeginForm("GetFilteredReports", "Home", null,
         new AjaxOptions
         {
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "raports-content"
+            UpdateTargetId = "reports-content"
         }, new { id = "filter-form" }))
 
 {

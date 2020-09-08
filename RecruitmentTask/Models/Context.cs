@@ -4,12 +4,12 @@ namespace RecruitmentTask.Models
 {
     public class Context : DbContext
     {
-        public Context() : base("RaportsDB")
+        public Context() : base("ReportsDB")
         {
-            Database.SetInitializer(new RaportsDBInitializer());
+            Database.SetInitializer(new ReportsDbInitializer());
         }
 
-        public DbSet<Raport> Raports { get; set; }
+        public DbSet<Report> Reports { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Premises> Premises { get; set; }
     }

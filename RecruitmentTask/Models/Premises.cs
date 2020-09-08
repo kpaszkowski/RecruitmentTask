@@ -6,6 +6,6 @@ namespace RecruitmentTask.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Raport> Raports { get; set; }
+        public ICollection<Report> Reports { get; set; }
     }
 }

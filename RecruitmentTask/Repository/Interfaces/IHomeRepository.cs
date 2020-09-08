@@ -1,9 +1,9 @@
 ﻿using RecruitmentTask.ViewModels;
 using System.Collections.Generic;
 
-namespace RecruitmentTask.Services.Interfaces
+namespace RecruitmentTask.Repository.Interfaces
 {
-    public interface IHomeService
+    public interface IHomeRepository
     {
         IList<ReportViewModelResponse> GetReports(ReportViewModelRequest viewModel);
     }

@@ -1,4 +1,4 @@
-﻿@model IList<RecruitmentTask.ViewModels.RaportViewModelReponse>
+﻿@model IList<RecruitmentTask.ViewModels.ReportViewModelResponse>
 @{
     Layout = "~/Views/Layout.cshtml";
 }
@@ -7,8 +7,8 @@
         <div class="col-sm-2">
             @{ Html.RenderPartial("Menu"); }
         </div>
-        <div id="raports-content" class="col-sm-10">
-            @{ Html.RenderAction("GetRaports"); }
+        <div id="reports-content" class="col-sm-10">
+            @{ Html.RenderAction("GetReports"); }
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace RecruitmentTask.DependencyInjection
 {
-    public class ControllersInstaller: IWindsorInstaller
+    public class ControllersInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {

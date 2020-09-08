@@ -2,7 +2,7 @@
 
 namespace RecruitmentTask.ViewModels
 {
-    public class RaportViewModelReponse
+    public class ReportViewModelResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }
